@@ -18,7 +18,7 @@ router.get('/all', (req, res) => {
 
 router.get('/:id', (req, res) => {
     Company.findOne({ _id: req.params.id }, (err, company) => {
-        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        if (err) return res.status(500).json({ msg: "Server Error :))", err: err.message });
         res.json(company);
     })
 });
