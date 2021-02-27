@@ -7,7 +7,7 @@ const company = require('./routes/company')
 const employees = require('./routes/employees')
 
 mongoose.connect(
-    'mongodb://localhost:27017/PC', {
+    'mongodb://localhost:27017/companyDatabases', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }

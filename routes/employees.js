@@ -1,11 +1,59 @@
 const express = require('express')
 const router = express.Router()
+const employees = require('../models/employees');
+
+router.get('/employeesPage', (req, res) => {
+    employees.find({}, (err, employee) => {
+        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        res.render('emloyee', { employee })
+    });
+});
+
+router.get('/all', (req, res) => {
+    employees.find({}, (err, employee) => {
+        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        res.json(employee);
+    });
+});
+
+router.get('/:id', (req, res) => {
+    employees.findOne({ _id: req.params.id }, (err, employee) => {
+        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        res.json(employee);
+    })
+});
+
+router.put('/', (req, res) => {
 
 
-router.get('/', (req, res, next) => {
-    res.send('helloemp')
-})
+    const newEmployee = new employees({
+        name: req.body.name,
+        lastName: req.body.lastName,
+        gender: req.body.gender,
+        socialId: req.body.socialId,
 
+    });
+
+
+    newEmployee.save((err, employee) => {
+        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        res.json(employee);
+    })
+});
+
+router.post('/:id', (req, res) => {
+    employees.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, employee) => {
+        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        res.json(employee);
+    })
+});
+
+router.delete('/:id', (req, res) => {
+    employees.findOneAndDelete({ _id: req.params.id }, (err, employee) => {
+        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        res.json({ employee, msg: "success" });
+    })
+});
 
 
 

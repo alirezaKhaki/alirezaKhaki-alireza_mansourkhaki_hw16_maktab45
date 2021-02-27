@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const ProductSchema = new Schema({
+const employeesSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -17,7 +17,7 @@ const ProductSchema = new Schema({
         required: true,
     },
     gender: {
-        type: string,
+        type: String,
         required: true,
         defult: "male",
 
@@ -28,4 +28,4 @@ const ProductSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Product', employeesSchema);
+module.exports = mongoose.model('employees', employeesSchema);

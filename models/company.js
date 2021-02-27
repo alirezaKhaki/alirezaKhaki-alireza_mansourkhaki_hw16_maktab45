@@ -22,10 +22,10 @@ const CompanySchema = new Schema({
         trim: true
     },
     number: {
-        type: number,
+        type: Number,
     },
     dateOfCreation: {
-        type: Date
+        type: String
     },
     CreatedAt: {
         type: Date,
