@@ -16,6 +16,25 @@ router.get('/all', (req, res) => {
     });
 });
 
+router.get('/20-30', (req, res) => {
+    const date = new Date();
+    const yearNow = date.getFullYear();
+    const thirty = yearNow - 30;
+    const twenty = yearNow - 20;
+    employees.find({ "birthDate.year": { $gt: `${thirty}`, $lt: `${twenty}` } }, { _id: false }, (err, employee) => {
+        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        res.json(employee);
+    });
+});
+
+router.get('/managers', (req, res) => {
+
+    employees.find({ manager: true }, (err, employee) => {
+        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        res.json(employee);
+    });
+});
+
 router.get('/:id', (req, res) => {
     employees.findOne({ _id: req.params.id }, (err, employee) => {
         if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
@@ -30,7 +49,9 @@ router.put('/', (req, res) => {
         name: req.body.name,
         lastName: req.body.lastName,
         gender: req.body.gender,
+        manager: req.body.manager,
         socialId: req.body.socialId,
+        birthDate: req.body.birthDate
 
     });
 

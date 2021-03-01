@@ -18,9 +18,15 @@ const employeesSchema = new Schema({
     },
     gender: {
         type: String,
-        required: true,
         defult: "male",
-
+    },
+    birthDate: {
+        type: Object,
+        required: true
+    },
+    manager: {
+        type: Boolean,
+        required: true,
     },
     CreatedAt: {
         type: Date,

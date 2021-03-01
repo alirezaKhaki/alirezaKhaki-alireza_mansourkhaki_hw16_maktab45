@@ -57,13 +57,23 @@ router.put('/', (req, res) => {
     })
 });
 
+
 router.post('/:id', (req, res) => {
-    console.log(req.body);
-    Company.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, company) => {
-        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
-        res.json(company);
-    })
+    if (req.params.id === "changeAll") {
+        const city = req.body.city
+
+        Company.updateMany(({}, { $set: { city: `${city}`, province: `${city}` } }), (err, company) => {
+            if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+            res.json({ company, msg: "success" });
+        })
+    } else {
+        Company.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, company) => {
+            if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+            res.json(company);
+        })
+    }
 });
+
 
 router.delete('/:id', (req, res) => {
     Company.findOneAndDelete({ _id: req.params.id }, (err, company) => {
@@ -71,7 +81,6 @@ router.delete('/:id', (req, res) => {
         res.json({ company, msg: "success" });
     })
 });
-
 
 
 module.exports = router
