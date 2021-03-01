@@ -16,6 +16,20 @@ router.get('/all', (req, res) => {
     });
 });
 
+
+router.get('/age/:id', (req, res) => {
+    const year = Number(req.params.id)
+    const date = new Date();
+    const yearNow = date.getFullYear();
+    const yearToCalculate = yearNow - year
+
+    Company.find({ dateOfCreation: { $gt: `${yearToCalculate}` } }, (err, companies) => {
+        if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
+        res.json(companies);
+    });
+});
+
+
 router.get('/:id', (req, res) => {
     Company.findOne({ _id: req.params.id }, (err, company) => {
         if (err) return res.status(500).json({ msg: "Server Error :))", err: err.message });
@@ -44,6 +58,7 @@ router.put('/', (req, res) => {
 });
 
 router.post('/:id', (req, res) => {
+    console.log(req.body);
     Company.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true }, (err, company) => {
         if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
         res.json(company);

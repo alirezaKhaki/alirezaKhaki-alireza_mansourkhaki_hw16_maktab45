@@ -25,7 +25,7 @@ const CompanySchema = new Schema({
         type: Number,
     },
     dateOfCreation: {
-        type: String
+        type: Date
     },
     CreatedAt: {
         type: Date,
