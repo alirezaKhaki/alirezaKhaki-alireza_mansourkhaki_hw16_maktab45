@@ -24,7 +24,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+app.get('/', (req, res) => {
+    res.send(path.join(__dirname, './public', 'index.html'))
+})
 app.use('/company', company)
 app.use('/employees', employees)
 

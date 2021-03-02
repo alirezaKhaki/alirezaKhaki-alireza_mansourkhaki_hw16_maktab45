@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 const Company = require('../models/company');
-
+const path = require('path');
 router.get('/companiesPage', (req, res) => {
     Company.find({}, (err, companies) => {
         if (err) return res.status(500).json({ msg: "Server Error :)", err: err.message });
-        res.render('company', { companies })
+        res.render(path.join(__dirname, '../views', './index.ejs'), { companies })
     });
 });
 

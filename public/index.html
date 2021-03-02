@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container" style="padding: 50px;text-align: center;">
+        <h3 style="color: rgb(99, 97, 97);">click on table for update/delete</h3>
+        <div class="table">
+
+        </div>
+
+
+
+        <!-- create modal -->
+
+        <!-- Button trigger modal -->
+        <button type="button" class="create btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        create
+      </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Enter your company's detail</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column ">
+                        <input type="text" class="name form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="name" required>
+                        <input type="number" class="createId form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="createId" required>
+                        <input type="number" class="number form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="number" required>
+                        <input type="text" class="city form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="city" required>
+                        <input type="text" class="province form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="province" required>
+                        <input type="date" class="date form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="dateOfCreation" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="close btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="save btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- edit/delete modal -->
+        <button style="display: none;" type="button" class="E_D btn btn-primary" data-bs-toggle="modal" data-bs-target="#editleModal">
+            Edit/Delete
+          </button>
+        <!-- Modal -->
+        <div class="modal fade" id="editleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit/Delete your company's detail</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="editBody modal-body d-flex flex-column ">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="Eclose btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="Esave btn btn-primary">Save changes</button>
+                        <button type="button" class="delete btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
