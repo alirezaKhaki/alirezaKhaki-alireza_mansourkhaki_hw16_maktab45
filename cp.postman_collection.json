@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "bde7ffc5-1ff4-4442-849a-dcfbbaee1f38",
+		"name": "cp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "creat",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \r\n    \"name\": \"mooz\",\r\n    \"creatId\": 980006,\r\n    \"number\": 54100586,\r\n    \"city\": \"esfahan\",\r\n    \"province\": \"esfahan\",\r\n    \"dateOfCreation\": \"2020-12-01T00:00:00.000Z\",\r\n    \"CreatedAt\": \"2021-03-01T10:11:39.547Z\"\r\n        \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/company/all",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/company/603cc49176791126b06100d4",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"603cc49176791126b06100d4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"city\": \"karaj\",\r\n\"province\":\"alborz\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/603cbc40fef7ae13d476d658",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"603cbc40fef7ae13d476d658"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByYear",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/company/age/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"age",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change all city",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\":\"bandar abas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/company/changeAll",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"company",
+								"changeAll"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "creat",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"mohsen\",\r\n        \"lastName\": \"akbari\",\r\n        \"gender\": \"male\",\r\n        \"manager\": true,\r\n        \"birthDate\":{\"year\":\"1998\",\"month\":\"11\",\"day\":\"12\"},\r\n        \"socialId\": 78211789\r\n        \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/employees/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employees",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/employees/all",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employees",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/employees/603ce5380398192930dc79c9",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employees",
+								"603ce5380398192930dc79c9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"alireza\",\r\n    \"lastName\":\"khaki\",\r\n    \"birthDate\":{\"year\":\"1997\",\"month\":\"04\",\"day\":\"22\"}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/employees/603cee9fe459b227e816995d",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employees",
+								"603cee9fe459b227e816995d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "age between 20-30",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/employees/20-30",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employees",
+								"20-30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "managers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:5000/employees/managers",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"employees",
+								"managers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
